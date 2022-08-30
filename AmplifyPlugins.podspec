@@ -43,8 +43,7 @@ Pod::Spec.new do |s|
   end
 
   s.subspec 'AWSCognitoAuthPlugin' do |ss|
-    ## ME
-    ss.source_files = 'AmplifyPlugins/Auth/AWSCognitoAuthPlugin/**/*.swift', 'AWSCognitoIdentityProvider/**/*.{h,m,c}'
+    ss.source_files = 'AmplifyPlugins/Auth/AWSCognitoAuthPlugin/**/*.swift'
     ss.public_header_files = 'AWSCognitoIdentityProvider/*.h'
     ss.private_header_files = 'AWSCognitoIdentityProvider/Internal/*.h'
     ## ME
@@ -56,6 +55,7 @@ Pod::Spec.new do |s|
     ## ME
     # ss.dependency 'AWSAuthCore', $OPTIMISTIC_AWS_SDK_VERSION
     # ss.dependency 'AWSCognitoIdentityProvider', $OPTIMISTIC_AWS_SDK_VERSION
+    ss.dependency 'AWSCognitoIdentityProvider', :podspec => "https://github.com/pizzahutuk/aws-sdk-ios/blob/master/AWSCognitoIdentityProvider.podspec"
     # ss.dependency 'AWSCognitoIdentityProviderASF', $OPTIMISTIC_AWS_SDK_VERSION
   end
 
