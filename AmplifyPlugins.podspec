@@ -28,14 +28,11 @@ Pod::Spec.new do |s|
   s.platform = :ios, '11.0'
   s.swift_version = '5.0'
 
-  ## ME
-  # s.dependency 'AWSPluginsCore', $AMPLIFY_VERSION
+  s.dependency 'AWSPluginsCore', $AMPLIFY_VERSION
 
   # This is technically redundant, but adding it here allows Xcode to find it
   # during initial indexing and prevent build errors after a fresh install
-
-  ## ME
-  # s.dependency 'AWSCore', $OPTIMISTIC_AWS_SDK_VERSION
+  s.dependency 'AWSCore', $OPTIMISTIC_AWS_SDK_VERSION
 
   s.subspec 'AWSAPIPlugin' do |ss|
     ss.source_files = 'AmplifyPlugins/API/AWSAPICategoryPlugin/**/*.swift'
@@ -44,19 +41,13 @@ Pod::Spec.new do |s|
 
   s.subspec 'AWSCognitoAuthPlugin' do |ss|
     ss.source_files = 'AmplifyPlugins/Auth/AWSCognitoAuthPlugin/**/*.swift'
-    ss.public_header_files = 'AWSCognitoIdentityProvider/*.h'
-    ss.private_header_files = 'AWSCognitoIdentityProvider/Internal/*.h'
-    ## ME
-    # ss.dependency 'AWSMobileClient', $OPTIMISTIC_AWS_SDK_VERSION
+    ss.dependency 'AWSMobileClient', $OPTIMISTIC_AWS_SDK_VERSION
 
     # This is technically redundant, but adding it here allows Xcode to find it
     # during initial indexing and prevent build errors after a fresh install
-
-    ## ME
-    # ss.dependency 'AWSAuthCore', $OPTIMISTIC_AWS_SDK_VERSION
-    # ss.dependency 'AWSCognitoIdentityProvider', $OPTIMISTIC_AWS_SDK_VERSION
-    ss.dependency 'AWSCognitoIdentityProvider', :podspec => "https://github.com/pizzahutuk/aws-sdk-ios/blob/master/AWSCognitoIdentityProvider.podspec"
-    # ss.dependency 'AWSCognitoIdentityProviderASF', $OPTIMISTIC_AWS_SDK_VERSION
+    ss.dependency 'AWSAuthCore', $OPTIMISTIC_AWS_SDK_VERSION
+    ss.dependency 'AWSCognitoIdentityProvider', $OPTIMISTIC_AWS_SDK_VERSION
+    ss.dependency 'AWSCognitoIdentityProviderASF', $OPTIMISTIC_AWS_SDK_VERSION
   end
 
   s.subspec 'AWSDataStorePlugin' do |ss|
