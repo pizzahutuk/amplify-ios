@@ -41,6 +41,9 @@ Pod::Spec.new do |s|
 
   s.subspec 'AWSCognitoAuthPlugin' do |ss|
     ss.source_files = 'AmplifyPlugins/Auth/AWSCognitoAuthPlugin/**/*.swift'
+    ss.source_files = 'AWSCognitoIdentityProvider/**/*.{h,m,c}'
+    ss.public_header_files = 'AWSCognitoIdentityProvider/*.h'
+    ss.private_header_files = 'AWSCognitoIdentityProvider/Internal/*.h'
     ss.dependency 'AWSMobileClient', $OPTIMISTIC_AWS_SDK_VERSION
 
     # This is technically redundant, but adding it here allows Xcode to find it
